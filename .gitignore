@@ -1,0 +1,12 @@
+.vscode/
+*.vscode
+.vscode
+-g 
+.gdb_history 
+*.gdb_history
+script 
+program 
+a.out 
+*.out 
+.out
+*.o
