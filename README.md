@@ -7,13 +7,14 @@ sh build.sh
 ```
 
 # Example 
+먼저 calc.txt파일을 만들고 아래와 같이 식을 적습니다. 
+`sin{30} * ( cos{30} + 6 )`
 ```
-➜  night ./program
+➜  night ./program calc.txt
 Calculating node...: sin{30} * ( cos{30} + 6 )
 Result: 3.433012%
 ➜  night
 ```
-터미널창에서 '*'와 '(' 문자에 대해 와일드카드 및 쉘 함수로 인식하여 파일로의 파싱 또는 "" 문자열로 묶어서 파싱하거나 해야하기에 추후 개선사항으로 남겨두었습니다.
 
 # Main Logic 
 ```C

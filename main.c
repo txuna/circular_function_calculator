@@ -8,10 +8,29 @@ int node_parse(const char *str, struct ParseState *p)
     return yyparse(p);
 }
 
+char *load_file_content(const char *path)
+{
+    FILE *f = fopen(path, "rb");
+    fseek(f, 0, SEEK_END);
+    long fsize = ftell(f);
+    fseek(f, 0, SEEK_SET);
+
+    char *buffer = (char*)malloc(fsize + 1);
+    fread(buffer, fsize, 1, f);
+    fclose(f);
+
+    return buffer;
+}
+
 
 int main(int argc, char **argv)
 {
-    const char *str = "sin{30} * ( cos{30} + 6 )";
+    if(argc != 2)
+    {
+        return 1;
+    }
+
+    char *str = load_file_content(argv[1]);
     struct ParseState p;
 
     int n = node_parse(str, &p);
